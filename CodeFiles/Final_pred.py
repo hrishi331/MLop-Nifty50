@@ -14,14 +14,17 @@ with open("models/pred_low.pkl","rb") as file:
 with open("models/pred_close.pkl","rb") as file:
     pred_close = pickle.load(file)
 
-open_val = np.array([[-0.25]])
+open_val = np.array([[-0.12]])
 
 
 predicted_high = float(pred_high.predict(open_val))
+pred_high_range = (predicted_high-0.63,predicted_high+0.63)
 predicted_low = float(pred_low.predict(open_val))
+pred_low_range = (predicted_low-0.64,predicted_low+0.64)
 close_val = np.array([[predicted_low, predicted_high, open_val[0, 0]]])
 predicted_close = float(pred_close.predict(close_val))
+pred_close_range = (predicted_close-0.6,predicted_close+0.6)
 
-print("Predicted High : ",predicted_high)
-print("Predicted Low : ",predicted_low)
-print("Predicted Close : ",predicted_close)
+print("Predicted High Range : ",pred_high_range)
+print("Predicted Low Range : ",pred_low_range)
+print("Predicted Close Range : ",pred_close_range)
