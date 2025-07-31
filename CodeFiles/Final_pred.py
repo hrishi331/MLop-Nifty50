@@ -1,3 +1,7 @@
+# This gives prediction based on change in open and each prediction further depends upon previous
+# e.g. it predicts high and low change from open then predicts 
+# change in close from predicted high, predicted low and change in open 
+
 import pandas as pd
 import numpy as np
 import pickle
