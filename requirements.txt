@@ -7,3 +7,5 @@ yfinance
 ipykernel
 xgboost
 lightgbm
+mlflow
+dagshub
